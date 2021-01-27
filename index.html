@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaohsiung-Travel-Information</title>
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body>
+    <main>
+        <div id="cover">
+            <h1>高雄旅遊資訊</h1>
+            <select name="" id="districtSelect">
+                <option value="全部結果">－－請選擇行政區－－</option>
+            </select>
+        </div>
+        <div id="filter">
+            <h3>熱門行政區</h3>
+            <input type="button" value="苓雅區" class="filterButton">
+            <input type="button" value="三民區" class="filterButton">
+            <input type="button" value="新興區" class="filterButton">
+            <input type="button" value="鹽埕區" class="filterButton">
+        </div>
+        <div id="decorationLine"></div>
+        <h2 id="selectedTitle">全部結果</h2>
+        <div id="informationCardsContainer"></div>
+        <ul id="pagination"></ul>
+    </main>
+    <footer>
+        高雄旅遊網
+        <div>資料來源：高雄市政府</div>
+    </footer>
+
+
+    <script src="./js/all.js"></script>
+</body>
+
+</html>
