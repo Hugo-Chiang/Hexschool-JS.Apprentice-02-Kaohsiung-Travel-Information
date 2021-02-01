@@ -16,9 +16,7 @@ let selectedAttractionsArr = allAttractionsArr;
 
 // 監聽事件
 districtSelect.addEventListener('change', selectDistrict);
-for (let i = 0; i < filterButton.length; i++) {
-    filterButton[i].addEventListener('click', selectDistrict);
-}
+filterButton.forEach((button) => button.addEventListener('click', selectDistrict));
 pagination.addEventListener('click', selectPage);
 
 // 初始化渲染
@@ -50,6 +48,7 @@ function renderDistrictList() {
 // 函式：選擇行政區
 function selectDistrict(e) {
     let selectedDistrict = e.target.value;
+    let options = document.querySelectorAll('option');
 
     selectedTitle.innerHTML = selectedDistrict;
     selectedAttractionsArr = [];
@@ -58,23 +57,13 @@ function selectDistrict(e) {
         selectedAttractionsArr = allAttractionsArr;
     } else {
         for (let i = 0; i < allAttractionsArr.length; i++) {
-            if (selectedDistrict == allAttractionsArr[i].Zone) {
-                selectedAttractionsArr.push(allAttractionsArr[i]);
-            }
+            if (selectedDistrict == allAttractionsArr[i].Zone) selectedAttractionsArr.push(allAttractionsArr[i]);
         }
     }
 
-    if (e.target.classList == 'filterButton') {
-        let options = document.querySelectorAll('option');
-
-        for (let i = 0; i < options.length; i++) {
-            options[i].removeAttribute('selected');
-        }
-        for (let i = 0; i < options.length; i++) {
-            if (options[i].value == selectedDistrict) {
-                options[i].setAttribute('selected', 'selected');
-            }
-        }
+    options.forEach((option) => option.removeAttribute('selected'));
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].value == selectedDistrict) options[i].setAttribute('selected', 'selected');
     }
 
     updateInformationCardsContainer(selectedAttractionsArr, 0);
